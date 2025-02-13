@@ -1,0 +1,88 @@
+.card {
+  font-family: 'BrandonText', sans-serif;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Image sizes */
+.card--image-small .card__image {
+  height: 150px;
+}
+
+.card--image-medium .card__image {
+  height: 200px;
+}
+
+.card--image-large .card__image {
+  height: 250px;
+}
+
+.card__image-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.card__image {
+  width: 100%;
+  object-fit: cover;
+}
+
+.card__content {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card__title {
+  font-family: 'BrandonText', sans-serif;
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.card__description {
+  font-family: 'BrandonText', sans-serif;
+  color: #666;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.card__button {
+  margin-top: auto;
+  font-family: 'BrandonText', sans-serif;
+}
+
+/* Background color variations */
+.card--light {
+  background-color: #ffffff;
+}
+
+.card--dark {
+  background-color: #2c3e50;
+  color: #ffffff;
+}
+
+.card--dark .card__title {
+  color: #ffffff;
+}
+
+.card--dark .card__description {
+  color: #ecf0f1;
+}
+
+.card--accent {
+  background-color: #f0f7ff;
+}

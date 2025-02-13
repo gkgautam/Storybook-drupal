@@ -1,0 +1,68 @@
+{#
+/**
+ * @file
+ * Header Banner component
+ *
+ * Variables:
+ * - image_url: The URL of the banner image (optional)
+ * - background_style: The background gradient style
+ * - heading_title: The banner heading
+ * - show_form: Boolean to determine if form should be shown instead of image
+ */
+#}
+
+{% set banner_classes = [
+  'header-banner',
+  background_style
+]|join(' ')|trim %}
+
+<div class="{{ banner_classes }}">
+  {# Content Section #}
+  <div class="header-banner__content">
+    <p class="header-banner__title">
+      {{ heading_title }}
+    </p>
+    
+    <p class="header-banner__description">
+      A collaborative venue diagramming tool that allows you to create, update, and scale custom layouts and objects. View and showcase your events in Photo-Realistic 3D, and make sure your team is on the same page by sharing.
+    </p>
+
+    <div class="header-banner__buttons">
+      <button class="header-banner__explore-button">
+        Explore the platform
+      </button>
+      <div class="header-banner__demo-link">
+        <a href="#" class="header-banner__link">
+          Request demo
+        </a>
+        <span class="header-banner__arrow">→</span>
+      </div>
+    </div>
+
+    <div class="header-banner__try-free">
+      <a href="#" class="header-banner__try-button">
+        Try Cvent Webinar for free
+      </a>
+    </div>
+  </div>
+
+  {# Media Section #}
+  <div class="header-banner__media">
+    {% if not show_form and image_url %}
+      <img 
+        src="{{ image_url }}" 
+        alt="Banner image"
+        class="header-banner__image"
+        width="520"
+        height="600"
+      />
+    {% else %}
+      {% include '@molecules/form/form.twig' with {
+        title: 'Sign Up for Updates',
+        description: 'Get exclusive access to new features and promotions.',
+        button_label: 'Request demo',
+        theme: 'dark'
+      } %}
+    {% endif %}
+  </div>
+</div>

@@ -1,0 +1,38 @@
+.button {
+  font-family: 'BrandonText', sans-serif;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  font-size: 1rem;
+}
+
+.button--primary {
+  background-color: #006AE1;
+  color: white;
+}
+
+.button--primary:hover {
+  background-color: #2F9BE9;
+}
+
+.button--secondary {
+  background-color: transparent;
+  border: 2px solid #006AE1;
+  color: #006AE1;
+}
+
+.button--secondary:hover {
+  background-color: rgba(0, 106, 225, 0.1);
+}
+
+.button--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.button--disabled:hover {
+  opacity: 0.5;
+}

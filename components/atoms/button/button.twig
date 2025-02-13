@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Button component
+ *
+ * Variables:
+ * - text: The button text
+ * - type: The button type (primary, secondary, disabled)
+ * - attributes: Additional HTML attributes
+ */
+#}
+
+{% set classes = [
+  'button',
+  'button--' ~ type|default('primary'),
+  disabled ? 'button--disabled' : '',
+]|join(' ')|trim %}
+
+<button 
+  class="{{ classes }}"
+  {% if disabled %}disabled{% endif %}
+  {{ attributes }}
+>
+  {{ text }}
+</button>

@@ -1,0 +1,24 @@
+{
+  "name": "drupal-storybook",
+  "version": "1.0.0",
+  "description": "Drupal Storybook component library with atomic design",
+  "main": "index.js",
+  "scripts": {
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "dependencies": {
+    "lit-html": "^2.7.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.0",
+    "@storybook/addon-actions": "^6.5.16",
+    "@storybook/addon-essentials": "^6.5.16",
+    "@storybook/addon-links": "^6.5.16",
+    "@storybook/builder-webpack5": "^6.5.16",
+    "@storybook/html": "^6.5.16",
+    "@storybook/manager-webpack5": "^6.5.16",
+    "babel-loader": "^8.3.0",
+    "webpack": "^5.75.0"
+  }
+}

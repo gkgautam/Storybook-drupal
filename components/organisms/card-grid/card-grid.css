@@ -1,0 +1,56 @@
+.card-grid {
+  display: grid;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Column variations */
+.card-grid--cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.card-grid--cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card-grid--cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Gap variations */
+.card-grid--gap-small {
+  gap: 1rem;
+}
+
+.card-grid--gap-medium {
+  gap: 2rem;
+}
+
+.card-grid--gap-large {
+  gap: 3rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .card-grid--cols-4 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .card-grid--cols-3,
+  .card-grid--cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .card-grid--gap-medium,
+  .card-grid--gap-large {
+    gap: 1.5rem;
+  }
+}

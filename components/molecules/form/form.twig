@@ -1,0 +1,122 @@
+{#
+/**
+ * @file
+ * Marteko Form component
+ *
+ * Variables:
+ * - title: The form title
+ * - description: The form description
+ * - button_label: The submit button label
+ * - theme: The form theme (default, dark)
+ * - size: The form size (default, compact)
+ */
+#}
+
+{% set form_classes = [
+  'marteko-form',
+  theme ? 'marteko-form--' ~ theme : 'marteko-form--default',
+  size ? 'marteko-form--' ~ size : 'marteko-form--default'
+]|join(' ')|trim %}
+
+<div class="{{ form_classes }}">
+  {% if title %}
+    <h1 class="marteko-form__title">{{ title }}</h1>
+  {% endif %}
+  
+  {% if description %}
+    <p class="marteko-form__description">{{ description }}</p>
+  {% endif %}
+
+  <form class="marteko-form__container">
+    {# Name Fields #}
+    <div class="marteko-form__row">
+      <div class="marteko-form__field-group">
+        <label for="firstName" class="marteko-form__label">First Name</label>
+        <input 
+          type="text"
+          name="firstName"
+          id="firstName"
+          class="marteko-form__input"
+          required
+        >
+      </div>
+      <div class="marteko-form__field-group">
+        <label for="lastName" class="marteko-form__label">Last Name</label>
+        <input 
+          type="text"
+          name="lastName"
+          id="lastName"
+          class="marteko-form__input"
+          required
+        >
+      </div>
+    </div>
+
+    {# Email Field #}
+    <div class="marteko-form__field-group">
+      <label for="email" class="marteko-form__label">Email Address</label>
+      <input 
+        type="email"
+        name="email"
+        id="email"
+        class="marteko-form__input"
+        required
+      >
+    </div>
+
+    {# Company Name Field #}
+    <div class="marteko-form__field-group">
+      <label for="companyName" class="marteko-form__label">Company Name</label>
+      <input 
+        type="text"
+        name="companyName"
+        id="companyName"
+        class="marteko-form__input"
+        required
+      >
+    </div>
+
+    {# Job Title Field #}
+    <div class="marteko-form__field-group">
+      <label for="jobTitle" class="marteko-form__label">Job Title</label>
+      <input 
+        type="text"
+        name="jobTitle"
+        id="jobTitle"
+        class="marteko-form__input"
+        required
+      >
+    </div>
+
+    {# Phone and City Fields #}
+    <div class="marteko-form__row">
+      <div class="marteko-form__field-group">
+        <label for="phone" class="marteko-form__label">Phone Number</label>
+        <input 
+          type="tel"
+          name="phone"
+          id="phone"
+          class="marteko-form__input"
+          required
+        >
+      </div>
+      <div class="marteko-form__field-group">
+        <label for="city" class="marteko-form__label">City</label>
+        <input 
+          type="text"
+          name="city"
+          id="city"
+          class="marteko-form__input"
+          required
+        >
+      </div>
+    </div>
+
+    {# Submit Button #}
+    <div class="marteko-form__field-group">
+      <button type="submit" class="marteko-form__submit">
+        {{ button_label }}
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,166 @@
+.marteko-form {
+  font-family: 'BrandonText', sans-serif;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 560px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.marteko-form__title {
+  font-family: 'BrandonText', sans-serif;
+  font-size: 1.875rem;
+  font-weight: 600;
+  text-align: left;
+  color: #333333;
+}
+
+.marteko-form__description {
+  font-family: 'BrandonText', sans-serif;
+  margin-top: 1rem;
+  font-size: 1.125rem;
+  text-align: left;
+  color: #666666;
+}
+
+.marteko-form__container {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.marteko-form__row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.marteko-form__field-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.marteko-form__label {
+  font-family: 'BrandonText', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4B5563;
+  margin-bottom: 0.25rem;
+}
+
+.marteko-form__input {
+  font-family: 'BrandonText', sans-serif;
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.marteko-form__input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+.marteko-form__submit {
+  font-family: 'BrandonText', sans-serif;
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #006AE1;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.marteko-form__submit:hover {
+  background-color: #2F9BE9;
+}
+
+.marteko-form__submit:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+/* Dark theme variation */
+.marteko-form--dark {
+  background-color: #1f2937;
+}
+
+.marteko-form--dark .marteko-form__title {
+  color: #ffffff;
+}
+
+.marteko-form--dark .marteko-form__description {
+  color: #d1d5db;
+}
+
+.marteko-form--dark .marteko-form__label {
+  color: #E5E7EB;
+}
+
+.marteko-form--dark .marteko-form__input {
+  background-color: #374151;
+  border-color: #4b5563;
+  color: #ffffff;
+}
+
+.marteko-form--dark .marteko-form__input:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.2);
+}
+
+/* Compact variation */
+.marteko-form--compact {
+  padding: 1.5rem;
+}
+
+.marteko-form--compact .marteko-form__container {
+  gap: 1rem;
+}
+
+.marteko-form--compact .marteko-form__label {
+  font-size: 0.75rem;
+  margin-bottom: 0.125rem;
+}
+
+.marteko-form--compact .marteko-form__input {
+  padding: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.marteko-form--compact .marteko-form__submit {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .marteko-form {
+    padding: 1.5rem;
+  }
+
+  .marteko-form__row {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  
+  .marteko-form__title {
+    font-size: 1.5rem;
+  }
+  
+  .marteko-form__description {
+    font-size: 1rem;
+  }
+}

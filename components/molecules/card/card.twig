@@ -1,0 +1,52 @@
+{#
+/**
+ * @file
+ * Card component
+ *
+ * Variables:
+ * - image: The image object with src and alt properties
+ * - title: The card title
+ * - description: The card description text
+ * - button: The button object with text and type properties
+ * - background_color: Optional background color class
+ * - image_size: Optional image size class (small, medium, large)
+ */
+#}
+
+{% set card_classes = [
+  'card',
+  background_color ? 'card--' ~ background_color : '',
+  image_size ? 'card--image-' ~ image_size : 'card--image-medium'
+]|join(' ')|trim %}
+
+<article class="{{ card_classes }}">
+  {% if image %}
+    <div class="card__image-wrapper">
+      <img 
+        src="{{ image.src }}" 
+        alt="{{ image.alt }}" 
+        class="card__image"
+      >
+    </div>
+  {% endif %}
+  
+  <div class="card__content">
+    {% if title %}
+      <h3 class="card__title">{{ title }}</h3>
+    {% endif %}
+    
+    {% if description %}
+      <div class="card__description">{{ description }}</div>
+    {% endif %}
+    
+    {% if button %}
+      <div class="card__button">
+        {% include '@atoms/button/button.twig' with {
+          text: button.text,
+          type: button.type|default('primary'),
+          disabled: button.disabled|default(false)
+        } %}
+      </div>
+    {% endif %}
+  </div>
+</article>
