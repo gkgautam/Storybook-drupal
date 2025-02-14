@@ -1,68 +1,68 @@
 {#
 /**
- * @file
  * Header Banner component
  *
  * Variables:
- * - image_url: The URL of the banner image (optional)
- * - background_style: The background gradient style
- * - heading_title: The banner heading
- * - show_form: Boolean to determine if form should be shown instead of image
+ * - title: Banner title
+ * - description: Banner description
+ * - imageUrl: URL for the banner image
+ * - gradient: Gradient variation (1, 2, 3, 4)
+ * - buttons: Array of buttons, each with:
+ *   - text: Button text
+ *   - variant: Button variant (primary, secondary)
+ *   - url: Button URL
+ * - showForm: Whether to show the form instead of image
+ * - formFields: Array of form field objects
  */
 #}
 
-{% set banner_classes = [
-  'header-banner',
-  background_style
-]|join(' ')|trim %}
-
-<div class="{{ banner_classes }}">
-  {# Content Section #}
+<div class="header-banner header-banner--gradient-{{ gradient|default('1') }}">
   <div class="header-banner__content">
-    <p class="header-banner__title">
-      {{ heading_title }}
-    </p>
-    
-    <p class="header-banner__description">
-      A collaborative venue diagramming tool that allows you to create, update, and scale custom layouts and objects. View and showcase your events in Photo-Realistic 3D, and make sure your team is on the same page by sharing.
-    </p>
+    {% if title %}
+      <h1 class="header-banner__title">{{ title }}</h1>
+    {% endif %}
 
-    <div class="header-banner__buttons">
-      <button class="header-banner__explore-button">
-        Explore the platform
-      </button>
-      <div class="header-banner__demo-link">
-        <a href="#" class="header-banner__link">
-          Request demo
-        </a>
-        <span class="header-banner__arrow">→</span>
+    {% if description %}
+      <p class="header-banner__description">{{ description }}</p>
+    {% endif %}
+
+    {% if buttons %}
+      <div class="header-banner__buttons">
+        {% for button in buttons %}
+          {% if button.variant == 'primary' %}
+            <button class="header-banner__explore-button">{{ button.text }}</button>
+          {% else %}
+            <div class="header-banner__demo-link">
+              <a href="{{ button.url|default('#') }}" class="header-banner__link">
+                {{ button.text }}
+              </a>
+              <span class="header-banner__arrow">→</span>
+            </div>
+          {% endif %}
+        {% endfor %}
       </div>
-    </div>
+    {% endif %}
 
-    <div class="header-banner__try-free">
-      <a href="#" class="header-banner__try-button">
-        Try Cvent Webinar for free
-      </a>
-    </div>
+    {% if tryFreeText %}
+      <div class="header-banner__try-free">
+        <a href="#" class="header-banner__try-button">{{ tryFreeText }}</a>
+      </div>
+    {% endif %}
   </div>
 
-  {# Media Section #}
   <div class="header-banner__media">
-    {% if not show_form and image_url %}
-      <img 
-        src="{{ image_url }}" 
-        alt="Banner image"
-        class="header-banner__image"
-        width="520"
-        height="600"
-      />
-    {% else %}
-      {% include '@molecules/form/form.twig' with {
-        title: 'Sign Up for Updates',
-        description: 'Get exclusive access to new features and promotions.',
-        button_label: 'Request demo',
-        theme: 'dark'
+    {% if showForm %}
+      {% include '../../molecules/form/form.twig' with {
+        title: formTitle,
+        description: formDescription,
+        fields: formFields|default([]),
+        submitText: formSubmitText,
+        theme: formTheme
       } %}
+    {% else %}
+      {% if imageUrl %}
+        <img class="header-banner__image" src="{{ imageUrl }}" alt="{{ title }}" />
+      {% endif %}
     {% endif %}
   </div>
 </div>

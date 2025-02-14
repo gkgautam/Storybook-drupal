@@ -1,56 +1,98 @@
 .card-grid {
+  font-family: 'BrandonText', sans-serif;
+  padding: 2rem;
   display: grid;
   width: 100%;
   margin: 0 auto;
 }
 
-/* Column variations */
-.card-grid--cols-2 {
+.card-grid__header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.card-grid__title {
+  font-family: 'BrandonText', sans-serif;
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+.card-grid__description {
+  font-family: 'BrandonText', sans-serif;
+  font-size: 1.125rem;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+.card-grid__container {
+  display: grid;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card-grid__columns--2 {
   grid-template-columns: repeat(2, 1fr);
 }
 
-.card-grid--cols-3 {
+.card-grid__columns--3 {
   grid-template-columns: repeat(3, 1fr);
 }
 
-.card-grid--cols-4 {
+.card-grid__columns--4 {
   grid-template-columns: repeat(4, 1fr);
 }
 
-/* Gap variations */
-.card-grid--gap-small {
-  gap: 1rem;
+.card-grid__item {
+  display: flex;
+  flex-direction: column;
 }
 
-.card-grid--gap-medium {
-  gap: 2rem;
+/* Dark theme */
+.card-grid--dark {
+  background-color: #1f2937;
 }
 
-.card-grid--gap-large {
-  gap: 3rem;
+.card-grid--dark .card-grid__title {
+  color: #ffffff;
+}
+
+.card-grid--dark .card-grid__description {
+  color: #d1d5db;
 }
 
 /* Responsive adjustments */
-@media (max-width: 1200px) {
-  .card-grid--cols-4 {
+@media (max-width: 1024px) {
+  .card-grid__columns--4 {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (max-width: 900px) {
-  .card-grid--cols-3,
-  .card-grid--cols-4 {
+@media (max-width: 768px) {
+  .card-grid__columns--3,
+  .card-grid__columns--4 {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card-grid__title {
+    font-size: 1.875rem;
   }
 }
 
-@media (max-width: 600px) {
-  .card-grid {
+@media (max-width: 640px) {
+  .card-grid__container {
     grid-template-columns: 1fr;
   }
-  
-  .card-grid--gap-medium,
-  .card-grid--gap-large {
-    gap: 1.5rem;
+
+  .card-grid__title {
+    font-size: 1.5rem;
+  }
+
+  .card-grid__description {
+    font-size: 1rem;
   }
 }

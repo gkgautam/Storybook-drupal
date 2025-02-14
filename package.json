@@ -5,13 +5,16 @@
   "main": "index.js",
   "scripts": {
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic --project-token=chpt_9178b3df797f50a"
   },
   "dependencies": {
-    "lit-html": "^2.7.0"
+    "lit-html": "^2.7.0",
+    "twig": "^1.16.0"
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",
+    "@storybook/addon-a11y": "^6.5.16",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",
     "@storybook/addon-links": "^6.5.16",
@@ -19,6 +22,8 @@
     "@storybook/html": "^6.5.16",
     "@storybook/manager-webpack5": "^6.5.16",
     "babel-loader": "^8.3.0",
+    "chromatic": "^11.25.2",
+    "twig-loader": "^0.5.5",
     "webpack": "^5.75.0"
   }
 }

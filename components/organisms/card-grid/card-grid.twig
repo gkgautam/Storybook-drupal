@@ -1,36 +1,45 @@
 {#
 /**
- * @file
  * Card Grid component
  *
  * Variables:
- * - cards: Array of card objects, each containing:
- *   - image: The image object with src and alt properties
- *   - title: The card title
- *   - description: The card description text
- *   - button: The button object with text and type properties
- * - columns: Number of columns (2-4)
- * - gap: Gap size between cards (small, medium, large)
+ * - title: Grid section title
+ * - description: Grid section description
+ * - cards: Array of card objects, each with:
+ *   - title: Card title
+ *   - description: Card description
+ *   - imageUrl: URL for the card image
+ *   - buttonText: Text for the card button
+ *   - theme: Theme variation (default, dark, compact)
+ * - columns: Number of columns (2, 3, 4)
+ * - theme: Theme variation (default, dark)
  */
 #}
 
-{% set grid_classes = [
-  'card-grid',
-  columns ? 'card-grid--cols-' ~ columns : 'card-grid--cols-3',
-  gap ? 'card-grid--gap-' ~ gap : 'card-grid--gap-medium'
-]|join(' ')|trim %}
-
-<div class="{{ grid_classes }}">
-  {% for card in cards %}
-    <div class="card-grid__item">
-      {% include '@molecules/card/card.twig' with {
-        image: card.image,
-        title: card.title,
-        description: card.description,
-        button: card.button,
-        background_color: card.background_color,
-        image_size: card.image_size
-      } %}
+<section class="card-grid {% if theme %}card-grid--{{ theme }}{% endif %}">
+  {% if title or description %}
+    <div class="card-grid__header">
+      {% if title %}
+        <h2 class="card-grid__title">{{ title }}</h2>
+      {% endif %}
+      
+      {% if description %}
+        <p class="card-grid__description">{{ description }}</p>
+      {% endif %}
     </div>
-  {% endfor %}
-</div>
+  {% endif %}
+
+  <div class="card-grid__container card-grid__columns--{{ columns|default(3) }}">
+    {% for card in cards %}
+      <div class="card-grid__item">
+        {% include '../../molecules/card/card.twig' with {
+          title: card.title,
+          description: card.description,
+          imageUrl: card.imageUrl,
+          buttonText: card.buttonText,
+          theme: card.theme|default(theme)
+        } %}
+      </div>
+    {% endfor %}
+  </div>
+</section>

@@ -4,22 +4,12 @@
  * Button component
  *
  * Variables:
- * - text: The button text
- * - type: The button type (primary, secondary, disabled)
- * - attributes: Additional HTML attributes
+ * - label: The button label
+ * - variant: The button variant (primary, secondary)
+ * - disabled: Whether the button is disabled
  */
 #}
 
-{% set classes = [
-  'button',
-  'button--' ~ type|default('primary'),
-  disabled ? 'button--disabled' : '',
-]|join(' ')|trim %}
-
-<button 
-  class="{{ classes }}"
-  {% if disabled %}disabled{% endif %}
-  {{ attributes }}
->
-  {{ text }}
+<button class="button button--{{ variant }} {% if disabled %}button--disabled{% endif %}" {% if disabled %}disabled{% endif %}>
+  {{ label }}
 </button>
